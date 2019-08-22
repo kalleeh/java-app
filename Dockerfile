@@ -6,6 +6,7 @@ RUN mvn clean package -Dmaven.test.skip=true
 
 FROM openjdk:8-jdk-alpine
 
+EXPOSE 80
 
 ARG JAR_FILE=/target/websocket-demo.jar
 COPY --from=MAVEN_TOOL_CHAIN /tmp/target/websocket-demo*.jar websocket-demo.jar
