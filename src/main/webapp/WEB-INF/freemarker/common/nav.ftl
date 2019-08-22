@@ -1,5 +1,6 @@
 <div id="header">
 	<h1>Simple Web Wizard in Spring MVC</h1>
+	<h2>Samaneh är bäst!</h2>
 	<h2>Virtual machine Wizard creator</h2>
 	<ul>
 		<li><a href="index.html" <#if selectedTab = 'welcome'> class='active' </#if>>Welcome</span></a></li>
