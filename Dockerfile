@@ -1,5 +1,8 @@
 FROM maven:3.5.2-jdk-8-alpine AS MAVEN_TOOL_CHAIN
 COPY pom.xml /tmp/
+# copy the pom file and run maven package to cache the dependencies in initial layer
+RUN mvn clean package -Dmaven.test.skip=true
+# copy the source to only re-package this part if src has changed
 COPY src /tmp/src/
 WORKDIR /tmp/
 RUN mvn clean package -Dmaven.test.skip=true
