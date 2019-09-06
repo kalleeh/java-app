@@ -3,7 +3,7 @@ COPY pom.xml /tmp/
 WORKDIR /tmp/
 
 # copy the pom file and run maven package to cache the dependencies in initial layer
-RUN mvn clean package -Dmaven.test.skip=true
+RUN mvn dependency:resolve
 
 # copy the source to only re-package this part if src has changed
 COPY src /tmp/src/
