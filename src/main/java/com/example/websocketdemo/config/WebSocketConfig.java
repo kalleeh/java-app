@@ -23,8 +23,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         // registry.enableSimpleBroker("/topic");   // Enables a simple in-memory broker
         //   Use this for enabling a Full featured broker like RabbitMQ
         registry.enableStompBrokerRelay("/topic")
-                .setRelayHost("
-stomp+ssl://b-d2a3dd17-48b5-4840-b83b-39db24a55f8f-1.mq.eu-west-1.amazonaws.com")
+                .setRelayHost("stomp+ssl://b-d2a3dd17-48b5-4840-b83b-39db24a55f8f-1.mq.eu-west-1.amazonaws.com")
                 .setRelayPort(61614)
                 .setClientLogin("test")
                 .setClientPasscode("Adm1nistrator!");
