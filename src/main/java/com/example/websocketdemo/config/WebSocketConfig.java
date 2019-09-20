@@ -8,8 +8,8 @@ import org.springframework.web.socket.config.annotation.*;
  * Created by rajeevkumarsingh on 24/07/17.
  */
 @Configuration
-@EnableWebSocketMessageBroker
-public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+// @EnableWebSocketMessageBroker
+public class WebSocketConfig extends DelegatingWebSocketMessageBrokerConfiguration {
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         registry.addEndpoint("/ws").withSockJS();
