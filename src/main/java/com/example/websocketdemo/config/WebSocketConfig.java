@@ -20,7 +20,7 @@ public class WebSocketConfig extends DelegatingWebSocketMessageBrokerConfigurati
         ReactorNettyTcpClient<byte[]> client = new ReactorNettyTcpClient<>(builder -> {
             builder.port(61614)
                 .host("b-d2a3dd17-48b5-4840-b83b-39db24a55f8f-1.mq.eu-west-1.amazonaws.com")
-                .sslSupport(opts -> {})
+                .sslSupport(opts -> {});
         }, new StompReactorNettyCodec());
 
         registry.setApplicationDestinationPrefixes("/app");
