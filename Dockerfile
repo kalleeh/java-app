@@ -3,11 +3,11 @@ COPY pom.xml /tmp/
 WORKDIR /tmp/
 
 # copy the pom file and run maven package to cache the dependencies in initial layer
-RUN mvn dependency:resolve
+RUN mvn dependency:go-offline
 
 # copy the source to only re-package this part if src has changed
 COPY src /tmp/src/
-RUN mvn clean package -Dmaven.test.skip=true
+RUN mvn package -Dmaven.test.skip=true
 
 FROM openjdk:8-jdk-alpine
 
