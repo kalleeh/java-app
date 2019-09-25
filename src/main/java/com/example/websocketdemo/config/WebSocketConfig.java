@@ -21,7 +21,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
-        final String host = "b-d2a3dd17-48b5-4840-b83b-39db24a55f8f-1.mq.eu-west-1.amazonaws.com";
+        final String host = "b-4dc5ab16-0521-4a0c-8f2b-eac112152088-1.mq.eu-west-1.amazonaws.com";
         final int port = 61614;
 
         ReactorNettyTcpClient<byte[]> client = new ReactorNettyTcpClient<>(builder -> builder.secure(
