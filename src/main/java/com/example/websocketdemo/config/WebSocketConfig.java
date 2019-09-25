@@ -11,10 +11,10 @@ import org.springframework.web.socket.config.annotation.*;
  * Created by rajeevkumarsingh on 24/07/17.
  */
 @Configuration
-@EnableWebSocketMessageBroker
-public class WebSocketConfig extends DelegatingWebSocketMessageBrokerConfiguration {
 //@EnableWebSocketMessageBroker
-//public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
+//public class WebSocketConfig extends DelegatingWebSocketMessageBrokerConfiguration {
+@EnableWebSocketMessageBroker
+public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
@@ -34,7 +34,6 @@ public class WebSocketConfig extends DelegatingWebSocketMessageBrokerConfigurati
                 .host(host)
                 .port(port), new StompReactorNettyCodec()
         );
-
 
         registry.setApplicationDestinationPrefixes("/app");
 
