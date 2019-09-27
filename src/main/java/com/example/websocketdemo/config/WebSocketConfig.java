@@ -16,7 +16,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     @Override
     public void registerStompEndpoints(StompEndpointRegistry registry) {
-        registry.addEndpoint("/ws").withSockJS().setAllowedOrigins("https://gurum-java-app.gurum.cloud/*");
+        registry.addEndpoint("/ws").setAllowedOrigins("https://gurum-java-app.gurum.cloud/*").withSockJS();
     }
 
     @Override
@@ -25,20 +25,20 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         final int port = 61614;
 
         ReactorNettyTcpClient<byte[]> client = new ReactorNettyTcpClient<>(builder -> builder.secure(
-                        spec -> {
-                            spec.sslContext(SslContextBuilder.forClient());
-                        }
-                )
-                .host(host)
-                .port(port), new StompReactorNettyCodec()
+                spec -> {
+                    spec.sslContext(SslContextBuilder.forClient());
+                }
+            )
+            .host(host)
+            .port(port), new StompReactorNettyCodec()
         );
 
         registry.setApplicationDestinationPrefixes("/app");
 
         registry.enableStompBrokerRelay("/topic")
-                .setSystemLogin("test")
-                .setSystemPasscode("Adm1nistrator!")
-                .setTcpClient(client);
+            .setSystemLogin("test")
+            .setSystemPasscode("Adm1nistrator!")
+            .setTcpClient(client);
     }
 
 }
