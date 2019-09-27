@@ -39,6 +39,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         registry.enableStompBrokerRelay("/topic")
             .setSystemLogin("test")
             .setSystemPasscode("Adm1nistrator!")
+            .setClientLogin("test")
+            .setClientPasscode("Adm1nistrator!")
             .setTcpClient(client);
     }
 
